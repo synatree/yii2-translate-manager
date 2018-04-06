@@ -28,4 +28,4 @@ use yii\grid\GridView;
 
     ?>
 
-<?php endif ?>
+<?php endif; ?>

@@ -96,7 +96,7 @@ class Language extends \yii\db\ActiveRecord
             'language' => Yii::t('model', 'Language'),
             'country' => Yii::t('model', 'Country'),
             'name' => Yii::t('model', 'Name'),
-            'name_ascii' => Yii::t('model', 'Name Ascii'),
+            'name_ascii' => Yii::t('model', 'Language Name'),
             'status' => Yii::t('model', 'Status'),
         ];
     }
@@ -169,7 +169,7 @@ class Language extends \yii\db\ActiveRecord
         static $statistics;
         if (!$statistics) {
             $count = LanguageSource::find()->count();
-            if ($count == 0) {
+            if (0 == $count) {
                 return 0;
             }
 

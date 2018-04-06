@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="language-view col-sm-6">
     <p>
-        <?= Html::a(Yii::t('language', 'Update'), ['update', 'id' => $model->language_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('language', 'Update'), ['update', 'id' => $model->language_id], ['class' => 'btn btn-primary']); ?>
         <?=
         Html::a(Yii::t('language', 'Delete'), ['delete', 'id' => $model->language_id], [
             'class' => 'btn btn-danger',
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'confirm' => Yii::t('language', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
-        ])
+        ]);
         ?>
     </p>
 
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => $model->getGridStatistic() . '%',
             ],
         ],
-    ])
+    ]);
     ?>
 
 </div>

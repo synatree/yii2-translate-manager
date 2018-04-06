@@ -19,6 +19,6 @@ $this->params['breadcrumbs'][] = Yii::t('language', 'Update');
 
     <?= $this->render('_form', [
         'model' => $model,
-    ]) ?>
+    ]); ?>
 
 </div>

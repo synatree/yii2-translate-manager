@@ -112,7 +112,7 @@ class ScannerDatabase
      */
     private function _getCategory($tables)
     {
-        if (isset($tables['category']) && $tables['category'] == 'database-table-name') {
+        if (isset($tables['category']) && 'database-table-name' == $tables['category']) {
             $category = $this->_normalizeTablename($tables['table']);
         } else {
             $category = Scanner::CATEGORY_DATABASE;

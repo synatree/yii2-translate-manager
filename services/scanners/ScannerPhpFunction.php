@@ -56,7 +56,7 @@ class ScannerPhpFunction extends ScannerFile
      */
     protected function getLanguageItem($buffer)
     {
-        if (isset($buffer[0][0], $buffer[1], $buffer[2][0]) && $buffer[0][0] === T_CONSTANT_ENCAPSED_STRING && $buffer[1] === ',' && $buffer[2][0] === T_CONSTANT_ENCAPSED_STRING) {
+        if (isset($buffer[0][0], $buffer[1], $buffer[2][0]) && $buffer[0][0] === T_CONSTANT_ENCAPSED_STRING && ',' === $buffer[1] && $buffer[2][0] === T_CONSTANT_ENCAPSED_STRING) {
             // is valid call we can extract
             $category = stripcslashes($buffer[0][1]);
             $category = mb_substr($category, 1, mb_strlen($category) - 2);
@@ -90,7 +90,7 @@ class ScannerPhpFunction extends ScannerFile
         $buffer = array_slice($buffer, 2);
         $message = stripcslashes($buffer[0][1]);
         $messages[] = mb_substr($message, 1, mb_strlen($message) - 2);
-        if (isset($buffer[1], $buffer[2][0]) && $buffer[1] === '.' && $buffer[2][0] == T_CONSTANT_ENCAPSED_STRING) {
+        if (isset($buffer[1], $buffer[2][0]) && '.' === $buffer[1] && $buffer[2][0] == T_CONSTANT_ENCAPSED_STRING) {
             $messages = array_merge_recursive($messages, $this->concatMessage($buffer));
         }
 

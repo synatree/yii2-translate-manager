@@ -162,7 +162,7 @@ abstract class ScannerFile extends \yii\console\controllers\MessageController
     {
         $this->scanner->stdout('Extracting messages from ' . $fileName, Console::FG_GREEN);
         $subject = file_get_contents($fileName);
-        if (static::EXTENSION !== '*.php') {
+        if ('*.php' !== static::EXTENSION) {
             $subject = "<?php\n" . $subject;
         }
 
@@ -204,7 +204,7 @@ abstract class ScannerFile extends \yii\console\controllers\MessageController
                         $this->scanner->addLanguageItems($languageItems);
                     }
 
-                    if (count($buffer) > 4 && $buffer[3] == ',') {
+                    if (count($buffer) > 4 && ',' == $buffer[3]) {
                         array_splice($buffer, 0, 4);
                         $buffer[] = $options['end']; //append an end marker stripped by the current check
                         $this->checkTokens($options, $translatorTokens, $buffer);

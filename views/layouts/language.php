@@ -16,18 +16,18 @@ use lajax\translatemanager\bundles\TranslateManagerAsset;
  */
 TranslateManagerAsset::register($this);
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language; ?>">
     <head>
-        <meta charset="<?= Yii::$app->charset ?>"/>
+        <meta charset="<?= Yii::$app->charset; ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?= Html::csrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
-        <?php $this->head() ?>
+        <?= Html::csrfMetaTags(); ?>
+        <title><?= Html::encode($this->title); ?></title>
+        <?php $this->head(); ?>
     </head>
     <body>
-        <?php $this->beginBody() ?>
+        <?php $this->beginBody(); ?>
         <div class="wrap">
             <?php
             NavBar::begin([
@@ -61,24 +61,24 @@ TranslateManagerAsset::register($this);
                 <?=
                 Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ])
+                ]);
                 ?>
                 <?php
                 foreach (Yii::$app->session->getAllFlashes() as $key => $message) {
                     echo '<div class="alert alert-' . $key . '">' . $message . '</div>';
                 } ?>
-                <?= Html::tag('h1', Html::encode($this->title)) ?>
-                <?= $content ?>
+                <?= Html::tag('h1', Html::encode($this->title)); ?>
+                <?= $content; ?>
             </div>
         </div>
 
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; Lajax TranslateManager <?= date('Y') ?></p>
-                <p class="pull-right"><?= Yii::powered() ?></p>
+                <p class="pull-left">&copy; Lajax TranslateManager <?= date('Y'); ?></p>
+                <p class="pull-right"><?= Yii::powered(); ?></p>
             </div>
         </footer>
-        <?php $this->endBody() ?>
+        <?php $this->endBody(); ?>
     </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>

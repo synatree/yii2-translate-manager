@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'format' => 'raw',
-                'attribute' => Yii::t('language', 'Statistic'),
+                'attribute' => Yii::t('language', '% Translated'),
                 'content' => function ($language) {
                     return '<span class="statistic"><span style="width:' . $language->gridStatistic . '%"></span><i>' . $language->gridStatistic . '%</i></span>';
                 },

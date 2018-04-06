@@ -14,11 +14,11 @@ use yii\helpers\Url;
 ?>
 <?php if ($oldDataProvider->totalCount > 1) : ?>
 
-    <?= Html::button(Yii::t('language', 'Select all'), ['id' => 'select-all', 'class' => 'btn btn-primary']) ?>
+    <?= Html::button(Yii::t('language', 'Select all'), ['id' => 'select-all', 'class' => 'btn btn-primary']); ?>
 
-    <?= Html::button(Yii::t('language', 'Delete selected'), ['id' => 'delete-selected', 'class' => 'btn btn-danger']) ?>
+    <?= Html::button(Yii::t('language', 'Delete selected'), ['id' => 'delete-selected', 'class' => 'btn btn-danger']); ?>
 
-<?php endif ?>
+<?php endif; ?>
 
 <?php if ($oldDataProvider->totalCount > 0) : ?>
 
@@ -51,4 +51,4 @@ use yii\helpers\Url;
 
     ?>
 
-<?php endif ?>
+<?php endif; ?>

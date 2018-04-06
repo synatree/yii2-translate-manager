@@ -200,9 +200,9 @@ class ImportForm extends Model
     {
         $importFileContent = file_get_contents($this->importFile->tempName);
 
-        if ($this->importFile->extension == Response::FORMAT_JSON) {
+        if (Response::FORMAT_JSON == $this->importFile->extension) {
             $data = Json::decode($importFileContent);
-        } elseif ($this->importFile->extension == Response::FORMAT_XML) {
+        } elseif (Response::FORMAT_XML == $this->importFile->extension) {
             $xml = simplexml_load_string($importFileContent);
             $json = json_encode($xml);
             $data = json_decode($json, true);

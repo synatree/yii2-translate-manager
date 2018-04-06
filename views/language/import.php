@@ -19,10 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'importFile')->fileInput() ?>
+    <?= $form->field($model, 'importFile')->fileInput(); ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('language', 'Import'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('language', 'Import'), ['class' => 'btn btn-primary']); ?>
     </div>
 
     <?php ActiveForm::end(); ?>

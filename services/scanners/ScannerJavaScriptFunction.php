@@ -58,10 +58,10 @@ class ScannerJavaScriptFunction extends ScannerFile
     {
         if (isset($buffer[0][0]) && $buffer[0][0] === T_CONSTANT_ENCAPSED_STRING) {
             foreach ($buffer as $data) {
-                if (isset($data[0], $data[1]) && $data[0] === T_CONSTANT_ENCAPSED_STRING) {
+                if (isset($data[0], $data[1]) && T_CONSTANT_ENCAPSED_STRING === $data[0]) {
                     $message = stripcslashes($data[1]);
                     $messages[] = mb_substr($message, 1, mb_strlen($message) - 2);
-                } elseif ($data === ',') {
+                } elseif (',' === $data) {
                     break;
                 }
             }

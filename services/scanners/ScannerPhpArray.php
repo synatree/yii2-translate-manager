@@ -62,7 +62,7 @@ class ScannerPhpArray extends ScannerFile
             foreach ($this->_getTranslators($file) as $translator) {
                 $this->extractMessages($file, [
                     'translator' => [$translator],
-                    'begin' => (preg_match('#array\s*$#i', $translator) != false) ? '(' : '[',
+                    'begin' => (false != preg_match('#array\s*$#i', $translator)) ? '(' : '[',
                     'end' => ';',
                 ]);
             }
@@ -100,7 +100,7 @@ class ScannerPhpArray extends ScannerFile
         $index = -1;
         $languageItems = [];
         foreach ($buffer as $key => $data) {
-            if (isset($data[0], $data[1]) && $data[0] === T_CONSTANT_ENCAPSED_STRING) {
+            if (isset($data[0], $data[1]) && T_CONSTANT_ENCAPSED_STRING === $data[0]) {
                 $message = stripcslashes($data[1]);
                 $message = mb_substr($message, 1, mb_strlen($message) - 2);
                 if (isset($buffer[$key - 1][0]) && $buffer[$key - 1][0] === '.') {

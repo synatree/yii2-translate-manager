@@ -305,7 +305,7 @@ class Module extends \yii\base\Module
     {
         $ip = Yii::$app->request->getUserIP();
         foreach ($this->allowedIPs as $filter) {
-            if ($filter === '*' || $filter === $ip || (($pos = strpos($filter, '*')) !== false && !strncmp($ip, $filter, $pos))) {
+            if ('*' === $filter || $filter === $ip || (false !== ($pos = strpos($filter, '*')) && !strncmp($ip, $filter, $pos))) {
                 return true;
             }
         }
