@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'language_id',
             'name_ascii',
-            [
+            /*[
                 'format' => 'raw',
                 'filter' => Language::getStatusNames(),
                 'attribute' => 'status',
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'content' => function ($language) {
                     return Html::activeDropDownList($language, 'status', Language::getStatusNames(), ['class' => 'status', 'id' => $language->language_id, 'data-url' => Yii::$app->urlManager->createUrl('/translatemanager/language/change-status')]);
                 },
-            ],
+            ],*/
             [
                 'format' => 'raw',
                 'attribute' => Yii::t('language', '% Translated'),
