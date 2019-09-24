@@ -93,6 +93,9 @@ class Module extends \yii\base\Module
      */
     const SESSION_KEY_ENABLE_TRANSLATE = 'frontendTranslation_EnableTranslate';
 
+    /** @var array Model map */
+    public $modelMap = [];
+    
     /**
      * @inheritdoc
      */
