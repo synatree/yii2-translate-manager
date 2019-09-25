@@ -25,8 +25,8 @@ class Bootstrap implements BootstrapInterface
         if ($app->hasModule('translatemanager') && ($module = $app->getModule('translatemanager')) instanceof Module) {
             $this->_modelMap = array_merge($this->_modelMap, $module->modelMap);
             foreach ($this->_modelMap as $name => $definition) {
-                $class = "lajax\\translatemanager\\models\\" . $name;
-                Yii::$container->set($class, $definition);
+                $classname = "lajax\\translatemanager\\models\\" . $name;
+                Yii::$container->set($classname, $definition);
                 $modelName = is_array($definition) ? $definition['class'] : $definition;
                 $module->modelMap[$name] = $modelName;
             }
