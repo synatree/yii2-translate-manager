@@ -8,6 +8,8 @@
 
 namespace lajax\translatemanager\models;
 
+use app\models\LanguageSource;
+
 use Yii;
 
 /**
