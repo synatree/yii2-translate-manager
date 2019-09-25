@@ -142,7 +142,7 @@ class LanguageSource extends \yii\db\ActiveRecord
      */
     public function getLanguageTranslate()
     {
-        return $this->hasOne( Yii::$app->container->get(LanguageTranslate::className()), ['id' => 'id']);
+        return $this->hasOne( (LanguageTranslate::className()), ['id' => 'id']);
     }
 
     /**
@@ -150,7 +150,7 @@ class LanguageSource extends \yii\db\ActiveRecord
      */
     public function getLanguageTranslates()
     {
-        return $this->hasMany(Yii::$app->container->get(LanguageTranslate::className()), ['id' => 'id']);
+        return $this->hasMany( (LanguageTranslate::className()), ['id' => 'id']);
     }
 
     /**
@@ -158,7 +158,7 @@ class LanguageSource extends \yii\db\ActiveRecord
      */
     public function getLanguages()
     {
-        return $this->hasMany(Yii::$app->container->get(Language::className()), ['language_id' => 'language'])
-            ->viaTable(Yii::$app->container->get(LanguageTranslate::className())::tableName(), ['id' => 'id']);
+        return $this->hasMany((Language::className()), ['language_id' => 'language'])
+            ->viaTable( (LanguageTranslate::className())::tableName(), ['id' => 'id']);
     }
 }
