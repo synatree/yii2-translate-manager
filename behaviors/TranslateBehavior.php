@@ -129,7 +129,10 @@ class TranslateBehavior extends AttributeBehavior
         $translatedMessage = $this->owner->attributes[$attribute];
 
         // Restore the original value, so it won't be replaced with the translation in the database.
-        $this->owner->{$attribute} = $sourceMessage;
+        if($sourceMessage)
+        {
+            $this->owner->{$attribute} = $sourceMessage;
+        }
 
         $translateSource = $this->findSourceMessage($sourceMessage);
         if (!$translateSource) {
