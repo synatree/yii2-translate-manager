@@ -238,9 +238,21 @@ class Language
     public static function getCategories()
     {
         $languageSources = \lajax\translatemanager\models\LanguageSource::find()->select('category')->distinct()->all();
-
         $categories = [];
+        $countryName = \app\helpers\CountryModel::getCountryName();
+        $isAdmin = Yii::$app->user->can('can_debug');
+        
         foreach ($languageSources as $languageSource) {
+            if(!$isAdmin)
+            {
+                // if the category seems to have a country name in it, it should by my country.
+                $parts = explode('-', $languageSource->category);
+                if( $parts[1] && $parts[1]!=$countryName )
+                {
+                        continue;
+                }
+            }
+
             $categories[$languageSource->category] = $languageSource->category;
         }
 
