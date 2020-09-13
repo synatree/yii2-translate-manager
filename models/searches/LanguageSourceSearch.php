@@ -13,6 +13,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use lajax\translatemanager\models\LanguageSource;
 use lajax\translatemanager\models\LanguageTranslate;
+use lajax\translatemanager\helpers\Language as Helper;
 
 /**
  * LanguageSourceSearch represents the model behind the search form about `common\models\LanguageSource`.
@@ -65,8 +66,11 @@ class LanguageSourceSearch extends LanguageSource
     {
         $translateLanguage = Yii::$app->request->get('language_id', Yii::$app->sourceLanguage);
         $sourceLanguage = $this->_getSourceLanguage();
+        $considerCategories = array_values(Helper::getCategories());
 
-        $query = LanguageSource::find();
+        $query = LanguageSource::find()->where([
+            'category' => $considerCategories,
+        ]);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

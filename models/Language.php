@@ -8,8 +8,7 @@
 
 namespace lajax\translatemanager\models;
 
-use app\models\LanguageSource;
-
+use lajax\translatemanager\helpers\Language as Helper;
 use Yii;
 
 /**
@@ -170,14 +169,20 @@ class Language extends \yii\db\ActiveRecord
     {
         static $statistics;
         if (!$statistics) {
-            $count = LanguageSource::find()->count();
+            $categoriesToConsider = array_values(Helper::getCategories());
+            \Yii::warning(print_r($categoriesToConsider,true));
+            $count = LanguageSource::find()->where([
+                'category' => $categoriesToConsider
+            ])->cache()->count();
             if (0 == $count) {
                 return 0;
             }
 
             $languageTranslates = LanguageTranslate::find()
                 ->select(['language', 'COUNT(*) AS cnt'])
+                ->joinWith('languageSource')
                 ->andWhere('translation IS NOT NULL')
+                ->andWhere(['category'=>$categoriesToConsider])
                 ->groupBy(['language'])
                 ->all();
 
