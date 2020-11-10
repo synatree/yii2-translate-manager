@@ -36,6 +36,10 @@ class LanguageSource extends \yii\db\ActiveRecord
         return $dbMessageSources['db'];
     }
 
+    public static function getMessageSource(){
+        return Yii::getObjectVars(Yii::$app->i18n->getMessageSource('DbMessageSource'));
+    }
+
     /**
      * @inheritdoc
      */
