@@ -4,7 +4,7 @@
  *
  * @since 1.4
  */
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\Url;
 

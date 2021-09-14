@@ -4,7 +4,7 @@
  *
  * @since 1.0
  */
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\helpers\Html;
 use lajax\translatemanager\models\Language;
 use yii\widgets\Pjax;
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'kartik\grid\SerialColumn'],
             'language_id',
             'name_ascii',
             /*[
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => 'kartik\grid\ActionColumn',
                 'template' => '{view} {update} {translate} {delete}',
                 'buttons' => [
                     'translate' => function ($url, $model, $key) {

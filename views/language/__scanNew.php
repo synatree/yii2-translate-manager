@@ -8,7 +8,7 @@
 /* @var $this \yii\web\View */
 /* @var $newDataProvider \yii\data\ArrayDataProvider */
 
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 ?>
 
@@ -20,7 +20,7 @@ use yii\grid\GridView;
         'id' => 'added-source',
         'dataProvider' => $newDataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'kartik\grid\SerialColumn'],
             'category',
             'message',
         ],

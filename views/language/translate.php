@@ -7,7 +7,7 @@
  */
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\ActiveForm;
 use lajax\translatemanager\helpers\Language;
 use lajax\translatemanager\models\Language as Lang;
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'kartik\grid\SerialColumn'],
             [
                 'format' => 'raw',
                 'filter' => Language::getCategories(),
