@@ -115,7 +115,7 @@ class TranslateBehavior extends AttributeBehavior
             if ($isAppInSourceLanguage || !$this->saveAttributeValueAsTranslation($attribute)) {
                 Language::saveMessage($this->owner->attributes[$attribute], $this->category);
                 $source = LanguageSource::getMessageSource();
-                if( $source && $source->enableCaching )
+                if( $source && is_object($source) && $source->enableCaching )
                 {
                     // invalidate the cache for this category since it's been changed.
                     $source->cache->delete([get_class($source), $this->category, Yii::$app->language]);
