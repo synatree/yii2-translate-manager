@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         Response::FORMAT_XML => Response::FORMAT_XML,
     ]); ?>
 
-    <div class="form-group">
+    <div class="mb-3">
         <?= Html::submitButton(Yii::t('language', 'Export'), ['class' => 'btn btn-primary']); ?>
     </div>
 

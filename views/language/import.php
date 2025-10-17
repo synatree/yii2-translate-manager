@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $form->field($model, 'importFile')->fileInput(); ?>
 
-    <div class="form-group">
+    <div class="mb-3">
         <?= Html::submitButton(Yii::t('language', 'Import'), ['class' => 'btn btn-primary']); ?>
     </div>
 

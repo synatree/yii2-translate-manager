@@ -31,7 +31,7 @@ use lajax\translatemanager\models\Language;
 
     <?= $form->field($model, 'status')->dropDownList(Language::getStatusNames()); ?>
 
-    <div class="form-group">
+    <div class="mb-3">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('language', 'Create') : Yii::t('language', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']); ?>
     </div>
 

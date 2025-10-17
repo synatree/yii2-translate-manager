@@ -34,7 +34,7 @@ TranslateManagerAsset::register($this);
                 'brandLabel' => 'Lajax TranslateManager',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-dark bg-dark fixed-top',
                 ],
             ]);
             $menuItems = [
@@ -51,7 +51,7 @@ TranslateManagerAsset::register($this);
                 ]],
             ];
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
+                'options' => ['class' => 'navbar-nav ms-auto'],
                 'items' => $menuItems,
             ]);
             NavBar::end();
@@ -74,8 +74,8 @@ TranslateManagerAsset::register($this);
 
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; Lajax TranslateManager <?= date('Y'); ?></p>
-                <p class="pull-right"><?= Yii::powered(); ?></p>
+                <p class="float-start">&copy; Lajax TranslateManager <?= date('Y'); ?></p>
+                <p class="float-end"><?= Yii::powered(); ?></p>
             </div>
         </footer>
         <?php $this->endBody(); ?>
